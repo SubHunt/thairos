@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thairos — Подтверждение возраста</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #c9a84c;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d4a574;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #8b4513;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .confirm {
+            background: #2e8b57;
+            color: white;
+        }
+        .confirm:hover {
+            background: #1f6b42;
+            transform: scale(1.05);
+        }
+        .deny {
+            background: #b22222;
+            color: white;
+        }
+        .deny:hover {
+            background: #8b0000;
+            transform: scale(1.05);
+        }
+        .warning {
+            color: #8b4513;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            border-top: 1px solid #d4a574;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="logo">
+        <h1>Добро пожаловать на Thairos</h1>
+        <p>Наша компания занимается оптово-розничной продажей пива, безалкогольных напитков и снеков на территории России.</p>
+        <p>Согласно законодательству РФ, алкогольная продукция может быть реализована только лицам, достигшим <strong>18 лет</strong>.</p>
+        <p>Пожалуйста, подтвердите, что вам уже есть 18 лет.</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="buttons">
+                <button type="submit" name="confirm" class="confirm">Мне есть 18 лет</button>
+                <button type="button" class="deny" onclick="window.location.href='https://www.google.com'">Мне нет 18 лет</button>
+            </div>
+        </form>
+        
+        <div class="warning">
+            <p>Чрезмерное употребление алкоголя вредит вашему здоровью. Пейте ответственно.</p>
+        </div>
+    </div>
+</body>
+</html>
