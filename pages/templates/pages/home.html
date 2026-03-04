@@ -4,24 +4,24 @@
 
 {% block content %}
 <!-- Header -->
-<header class="bg-white shadow-md sticky top-0 z-50">
+<header class="bg-primary shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="logo">
+        <a href="{% url 'home' %}" class="logo">
             <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="h-16">
-        </div>
+        </a>
         <nav class="hidden md:block">
             <ul class="flex space-x-8">
-                <li><a href="#home" class="text-primary font-semibold hover:text-secondary transition">Главная</a></li>
+                <li><a href="#home" class="text-white font-semibold hover:text-secondary transition">Главная</a></li>
                 <li class="relative group">
-                    <a href="#products" class="text-primary font-semibold hover:text-secondary transition">Продукция</a>
+                    <a href="#products" class="text-white font-semibold hover:text-secondary transition">Продукция</a>
                     <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 p-4 min-w-[200px]">
-                        <a href="#beer" class="block py-2 hover:text-secondary">Пиво</a>
+                        <a href="{% url 'pages:beer_brands' %}" class="block py-2 hover:text-secondary">Пиво</a>
                         <a href="#drinks" class="block py-2 hover:text-secondary">Безалкогольные напитки</a>
                         <a href="#snacks" class="block py-2 hover:text-secondary">Снеки</a>
                     </div>
                 </li>
-                <li><a href="#about" class="text-primary font-semibold hover:text-secondary transition">О компании</a></li>
-                <li><a href="#contacts" class="text-primary font-semibold hover:text-secondary transition">Контакты</a></li>
+                <li><a href="#about" class="text-white font-semibold hover:text-secondary transition">О компании</a></li>
+                <li><a href="#contacts" class="text-white font-semibold hover:text-secondary transition">Контакты</a></li>
             </ul>
         </nav>
     </div>
@@ -36,7 +36,7 @@
         </p>
         <div class="flex flex-col sm:flex-row gap-6 justify-center">
             <a href="#products" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300">
-                Изучить каталог
+                Каталог
             </a>
             <a href="#contact-form" class="bg-secondary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300">
                 Запросить прайс
@@ -50,7 +50,7 @@
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center text-primary mb-12">Категории</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+            <a href="{% url 'pages:beer_brands' %}" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
                 <img src="/static/beer-glass-with-bg.png" alt="Пиво" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-primary mb-4">Пиво</h3>
@@ -58,7 +58,7 @@
                         Широкий ассортимент крафтового и лагерного пива от ведущих мировых брендов: Singha, Leo, Saigon, Tiger, Sapporo и другие.
                     </p>
                 </div>
-            </div>
+            </a>
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
                 <img src="/static/bio-sea.jpg" alt="Напитки" class="w-full h-64 object-cover">
                 <div class="p-6">
@@ -256,7 +256,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
                 <h4 class="text-2xl font-bold mb-6 border-b-2 border-secondary pb-2">Продукция</h4>
-                <a href="#beer" class="block mb-3 hover:text-secondary transition">Пиво</a>
+                <a href="{% url 'pages:beer_brands' %}" class="block mb-3 hover:text-secondary transition">Пиво</a>
                 <a href="#drinks" class="block mb-3 hover:text-secondary transition">Напитки</a>
                 <a href="#snacks" class="block hover:text-secondary transition">Снеки</a>
             </div>

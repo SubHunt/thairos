@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Thairos — Бренды пива{% endblock %}
+
+{% block content %}
+<!-- Header (такой же как на главной) -->
+<header class="bg-primary shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="h-16">
+        </a>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-8">
+                <li><a href="{% url 'home' %}" class="text-white font-semibold hover:text-secondary transition">Главная</a></li>
+                <li class="relative group">
+                    <a href="#products" class="text-white font-semibold hover:text-secondary transition">Продукция</a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 p-4 min-w-[200px]">
+                        <a href="{% url 'pages:beer_brands' %}" class="block py-2 hover:text-secondary">Пиво</a>
+                        <a href="#drinks" class="block py-2 hover:text-secondary">Безалкогольные напитки</a>
+                        <a href="#snacks" class="block py-2 hover:text-secondary">Снеки</a>
+                    </div>
+                </li>
+                <li><a href="#about" class="text-white font-semibold hover:text-secondary transition">О компании</a></li>
+                <li><a href="#contacts" class="text-white font-semibold hover:text-secondary transition">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-white text-black py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6">Бренды пива</h1>
+        <p class="text-xl max-w-3xl mx-auto">
+            Мы предлагаем широкий ассортимент премиального пива от ведущих мировых производителей.
+            Каждый бренд обладает уникальным характером и историей.
+        </p>
+    </div>
+</section>
+
+<!-- Brands Grid -->
+<section class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-primary mb-12">Наши бренды</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for brand in brands %}
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                <img src="{{ brand.image }}" alt="{{ brand.name }}" class="w-full h-64 object-contain p-4 bg-gray-50">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-primary mb-4">{{ brand.name }}</h3>
+                    <p class="text-gray-600">{{ brand.description }}</p>
+                    <a href="#" class="inline-block mt-6 text-secondary font-semibold hover:underline">
+                        Подробнее →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contacts" class="bg-primary text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h4 class="text-2xl font-bold mb-6 border-b-2 border-secondary pb-2">Продукция</h4>
+                <a href="{% url 'pages:beer_brands' %}" class="block mb-3 hover:text-secondary transition">Пиво</a>
+                <a href="#drinks" class="block mb-3 hover:text-secondary transition">Напитки</a>
+                <a href="#snacks" class="block hover:text-secondary transition">Снеки</a>
+            </div>
+            <div>
+                <h4 class="text-2xl font-bold mb-6 border-b-2 border-secondary pb-2">Контакты</h4>
+                <p class="mb-2">ООО ТК «ТАЙРОС»</p>
+                <p class="mb-2">Россия, 143081, МО, г. Одинцово, ул. Транспортная 2, стр. 19, пом. 17.</p>
+                <p class="mb-2">ИНН 5032218993, КПП 503201001</p>
+                <p class="mb-2">Тел. +7-916-745-24-34; +7 (495) 978-21-58</p>
+                <p class="mb-2">Email: thairos@mail.ru</p>
+                <p>www.thairos.ru</p>
+            </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-300">
+            &copy; 2026 Thairos. Все права защищены. Чрезмерное употребление алкоголя вредит вашему здоровью.
+        </div>
+    </div>
+</footer>
+{% endblock %}
