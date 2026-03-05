@@ -1,0 +1,23 @@
+<!-- Общий header для всех страниц -->
+<header class="bg-primary shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="h-16">
+        </a>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-8">
+                <li><a href="{% url 'home' %}" class="text-white font-semibold hover:text-secondary transition">Главная</a></li>
+                <li class="relative group">
+                    <a href="#products" class="text-white font-semibold hover:text-secondary transition">Продукция</a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 p-4 min-w-[200px]">
+                        <a href="{% url 'pages:beer_brands' %}" class="block py-2 hover:text-secondary">Пиво</a>
+                        <a href="#drinks" class="block py-2 hover:text-secondary">Безалкогольные напитки</a>
+                        <a href="#snacks" class="block py-2 hover:text-secondary">Снеки</a>
+                    </div>
+                </li>
+                <li><a href="#about" class="text-white font-semibold hover:text-secondary transition">О компании</a></li>
+                <li><a href="#contacts" class="text-white font-semibold hover:text-secondary transition">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
