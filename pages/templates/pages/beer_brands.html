@@ -23,16 +23,15 @@
         <h2 class="text-4xl font-bold text-center text-primary mb-12">Наши бренды</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for brand in brands %}
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+            <a href="{% url 'pages:brand_detail' slug=brand.slug %}" class="brand-card block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-400 no-underline text-inherit relative">
                 <img src="{{ brand.image }}" alt="{{ brand.name }}" class="w-full h-64 object-contain p-4 bg-gray-50">
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-primary mb-4">{{ brand.name }}</h3>
                     <p class="text-gray-600">{{ brand.description }}</p>
-                    <a href="{% url 'pages:brand_detail' slug=brand.slug %}" class="inline-block mt-6 text-secondary font-semibold hover:underline">
-                        Подробнее →
-                    </a>
                 </div>
-            </div>
+                <!-- Эффект блеска при наведении -->
+                <div class="shine"></div>
+            </a>
             {% endfor %}
         </div>
     </div>
