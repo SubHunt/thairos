@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}О компании — Thairos{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-primary to-secondary text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6">О компании</h1>
+        <p class="text-xl max-w-3xl mx-auto">
+            ООО ТК «ТАЙРОС» — ваш надежный проводник в мире премиального азиатского пива.
+        </p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="prose prose-lg mx-auto">
+            <p class="text-gray-700 mb-6">
+                ООО ТК «ТАЙРОС» — ваш надежный проводник в мире премиального азиатского пива. Наша компания специализируется на импорте и дистрибуции лучших сортов пива из Таиланда, Вьетнама, Сингапура, Филиппин, Японии и Индии, предлагая российским ценителям богатство вкусов Юго-Восточной Азии.
+            </p>
+            <p class="text-gray-700 mb-6">
+                В нашем портфеле — легендарные бренды с богатой историей: флагманский тайский лагер Singha, варящийся с 1933 года и удостоенный королевского одобрения; культовый тайский бренд LEO с насыщенным характером и выразительной хмелевой горчинкой; сингапурский Tiger, рожденный в легендарном отеле Raffles; старейшее японское пиво Sapporo с вековыми традициями баварского пивоварения; индийский "король хороших времен" Kingfisher; вьетнамская классика Saigon и Hanoi; филиппинский San Miguel с более чем 130-летней историей; а также первая крафтовая пивоварня Пхукета Full Moon Brewworks, экспериментирующая с уникальными тайскими ингредиентами.
+            </p>
+            <p class="text-gray-700 mb-6">
+                Мы тщательно отбираем напитки, чтобы познакомить российского потребителя с подлинным вкусом Азии — от классических лагеров до крафтовых сортов с местным колоритом. ООО ТК «ТАЙРОС» — это гарантия качества, широкий ассортимент и профессиональный подход к дистрибуции пивных традиций Юго-Восточной Азии в России.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info -->
+<section class="py-16 bg-light">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-4xl font-bold text-center text-primary mb-12">Контакты</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-secondary mb-4">ООО ТК «ТАЙРОС»</h3>
+                <address class="not-italic text-gray-700 space-y-4">
+                    <p class="flex items-start">
+                        <svg class="w-6 h-6 mr-3 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Россия, 143081, МО, г. Одинцово, ул. Транспортная 2, стр. 19, пом. 17.</span>
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                        <span>Тел. +7-916-745-24-34; +7 (495) 978-21-58</span>
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                        <span>Email: <a href="mailto:thairos@mail.ru" class="text-secondary hover:underline">thairos@mail.ru</a></span>
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Сайт: <a href="https://www.thairos.ru" target="_blank" class="text-secondary hover:underline">www.thairos.ru</a></span>
+                    </p>
+                </address>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-secondary mb-4">Реквизиты</h3>
+                <div class="text-gray-700 space-y-4">
+                    <p><strong>ИНН:</strong> 5032218993</p>
+                    <p><strong>КПП:</strong> 503201001</p>
+                    <p><strong>ОГРН:</strong> (уточнить при необходимости)</p>
+                    <p><strong>Расчётный счёт:</strong> (уточнить при необходимости)</p>
+                    <p><strong>Банк:</strong> (уточнить при необходимости)</p>
+                </div>
+                <div class="mt-8 p-4 bg-primary bg-opacity-10 rounded-lg">
+                    <p class="text-sm text-white text-center">
+                        Для получения полных реквизитов и договора поставки обратитесь к менеджерам по указанным телефонам.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+{% endblock %}
