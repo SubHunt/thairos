@@ -247,3 +247,144 @@ h1, h2 {
     color: #8b4513;
     margin: 10px 0;
 }
+/* Стили для общего шаблона брендов */
+.brand-generic-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+.brand-hero-full {
+    background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.brand-hero-full .hero-title {
+    font-size: 4rem;
+    color: #ffc522;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+}
+
+.brand-hero-full .hero-subtitle {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.specs-section {
+    margin: 60px 0;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+}
+
+.specs-section h2 {
+    text-align: center;
+    color: #8b4513;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.spec-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.spec-card:hover {
+    transform: translateY(-5px);
+}
+
+.spec-card h3 {
+    color: #8b4513;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.spec-card p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cta-section {
+    margin: 60px 0;
+    padding: 50px;
+    background: linear-gradient(135deg, #8b4513, #d2691e);
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+}
+
+.cta-section h2 {
+    color: #ffc522;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ffc522;
+    color: #8b4513;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    border: 2px solid #ffc522;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: #ffc522;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .brand-hero-full .hero-title {
+        font-size: 2.5rem;
+    }
+    .brand-hero-full .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cta-section {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+}

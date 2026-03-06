@@ -15,50 +15,7 @@
         {% include 'pages/brand_singha.html' %}
     {% else %}
         <!-- Общий шаблон для других брендов -->
-        <div class="brand-hero">
-            <h2>История и традиции</h2>
-        </div>
-
-        <div class="container">
-            <div class="content">
-                <div class="history">
-                    <h2>Историческая справка</h2>
-                    <p>Здесь будет подробное описание бренда, его история, традиции brewing, награды и особенности. Для примера заполним текстом-рыбой.</p>
-                    <p>Бренд {{ slug }} был основан в 19XX году и с тех пор является символом качества и традиций. Наши мастера используют только лучшие ингредиенты: хмель, солод и чистейшую воду.</p>
-                    <p>Сегодня {{ slug }} экспортируется в более чем 50 стран мира и завоевал множество международных наград.</p>
-                    <p>Мы гордимся тем, что представляем этот бренд на российском рынке и предлагаем нашим клиентам подлинный вкус оригинала.</p>
-                </div>
-                <div class="products">
-                    <h2>Ассортимент</h2>
-                    <ul class="product-list">
-                        <li>
-                            <img src="https://via.placeholder.com/80x80/8b4513/ffffff?text=Beer" class="product-img" alt="Продукт">
-                            <div>
-                                <strong>{{ slug }} Lager 0.5L</strong><br>
-                                Алкоголь: 5.0% · Объём: 500 мл
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://via.placeholder.com/80x80/d4a574/ffffff?text=Can" class="product-img" alt="Продукт">
-                            <div>
-                                <strong>{{ slug }} Can 0.33L</strong><br>
-                                Алкоголь: 4.8% · Объём: 330 мл
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://via.placeholder.com/80x80/333/ffffff?text=Premium" class="product-img" alt="Продукт">
-                            <div>
-                                <strong>{{ slug }} Premium 0.66L</strong><br>
-                                Алкоголь: 6.2% · Объём: 660 мл
-                            </div>
-                        </li>
-                    </ul>
-                    <p>Все продукты доступны в упаковках по 6, 12, 24 штуки. Цены по запросу.</p>
-                </div>
-            </div>
-
-            <a href="{% url 'pages:beer_brands' %}" class="back-link">← Назад к брендам</a>
-        </div>
+        {% include 'pages/brand_generic.html' %}
     {% endif %}
 
     <!-- Форма "Написать нам" -->

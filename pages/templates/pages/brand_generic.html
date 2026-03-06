@@ -1,0 +1,109 @@
+<!-- Общий шаблон для брендов пива -->
+<div class="brand-generic-container" style="background: white; border-radius: 20px; padding: 20px;">
+    <!-- Hero Section (full-width) -->
+    <section class="brand-hero-full">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ brand_name|default:"Бренд" }}</h1>
+            <p class="hero-subtitle">
+                {{ brand_tagline|default:"Премиальное пиво с богатой историей и неповторимым вкусом." }}
+            </p>
+        </div>
+    </section>
+
+    <!-- Блок 1: изображение слева, текст справа -->
+    <div class="chess-block">
+        <div class="chess-image" style="background-image: url('{{ image1|default:'/static/logos/logo.png' }}');"></div>
+        <div class="chess-text">
+            <h2>История и традиции</h2>
+            <p>
+                {{ history_text|default:"Этот бренд был основан в далёком году и с тех пор является символом качества и мастерства. Наши пивовары используют только лучшие ингредиенты: отборный хмель, солод и чистейшую воду. Каждая партия проходит строгий контроль качества, чтобы гарантировать неизменно высокий стандарт." }}
+            </p>
+            <p>
+                Сегодня бренд экспортируется в более чем 50 стран мира и завоевал множество международных наград.
+            </p>
+        </div>
+    </div>
+
+    <!-- Блок 2: текст слева, изображение справа -->
+    <div class="chess-block reverse">
+        <div class="chess-image" style="background-image: url('{{ image2|default:'/static/logos/logo.png' }}');"></div>
+        <div class="chess-text">
+            <h2>Уникальный вкус</h2>
+            <p>
+                {{ taste_text|default:"Вкус этого пива — это гармония солодовой сладости, хмельной горчинки и лёгких фруктовых нот. Благодаря особой технологии холодного брожения напиток получается кристально чистым и освежающим. Идеально подходит для вечера с друзьями или как сопровождение к блюдам азиатской кухни." }}
+            </p>
+        </div>
+    </div>
+
+    <!-- Блок 3: изображение слева, текст справа -->
+    <div class="chess-block">
+        <div class="chess-image" style="background-image: url('{{ image3|default:'/static/logos/logo.png' }}');"></div>
+        <div class="chess-text">
+            <h2>Награды и признание</h2>
+            <p>
+                {{ awards_text|default:"На протяжении многих лет бренд удостаивался высших оценок на международных конкурсах. Среди наград — золотые медали World Beer Cup, European Beer Star и многих других престижных соревнований. Это признание — результат непрерывной работы над качеством и верности традициям." }}
+            </p>
+        </div>
+    </div>
+
+    <!-- Блок характеристик -->
+    <div class="specs-section">
+        <h2>Характеристики</h2>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3>Категория</h3>
+                <p>{{ category|default:"Светлый лагер" }}</p>
+            </div>
+            <div class="spec-card">
+                <h3>Крепость</h3>
+                <p>{{ abv|default:"5.0%" }}</p>
+            </div>
+            <div class="spec-card">
+                <h3>Плотность</h3>
+                <p>{{ gravity|default:"12%" }}</p>
+            </div>
+            <div class="spec-card">
+                <h3>Горечь (IBU)</h3>
+                <p>{{ ibu|default:"20" }}</p>
+            </div>
+            <div class="spec-card">
+                <h3>Цвет</h3>
+                <p>{{ color|default:"Золотистый" }}</p>
+            </div>
+            <div class="spec-card">
+                <h3>Температура подачи</h3>
+                <p>{{ serving_temp|default:"8–10°C" }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Продукция -->
+    <div class="products-section">
+        <h2>Форматы упаковки</h2>
+        <div class="products-row">
+            <div class="product-card">
+                <img src="{{ product_image1|default:'/static/singha/img/goods/Singha_bottle_320_web_artboard_trim_pic.png' }}" alt="Бутылка 0.33 л">
+                <h4>Бутылка 0.33 л</h4>
+            </div>
+            <div class="product-card">
+                <img src="{{ product_image2|default:'/static/singha/img/goods/Singha_Can_330_web_artboard_trim_pic.png' }}" alt="Банка 0.33 л">
+                <h4>Банка 0.33 л</h4>
+            </div>
+            <div class="product-card">
+                <img src="{{ product_image3|default:'/static/singha/img/goods/Singha_lite_bottle_320ml.png' }}" alt="Бутылка 0.5 л">
+                <h4>Бутылка 0.5 л</h4>
+            </div>
+            <div class="product-card">
+                <img src="{{ product_image4|default:'/static/singha/img/goods/Singha_lite_can_320ml.png' }}" alt="Кег 5 л">
+                <h4>Кег 5 л</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Призыв к действию -->
+    <div class="cta-section">
+        <h2>Хотите попробовать?</h2>
+        <p>Свяжитесь с нами для заказа или получения дополнительной информации.</p>
+        <a href="{% url 'pages:beer_brands' %}" class="cta-button">Вернуться к брендам</a>
+    </div>
+</div>
