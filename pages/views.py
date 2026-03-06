@@ -118,3 +118,8 @@ def beer_brands(request):
         },
     ]
     return render(request, 'pages/beer_brands.html', {'brands': brands})
+
+
+def about(request):
+    """Страница 'О компании'"""
+    return render(request, 'pages/about.html')

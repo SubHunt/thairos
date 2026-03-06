@@ -57,3 +57,45 @@
     left: 100%;
     transition: left 1.5s ease;
 }
+/* Стили для страницы "О компании" */
+.prose p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.bg-light {
+    background-color: #f8f5e9;
+}
+.text-secondary {
+    color: #e6c35c;
+}
+.rounded-2xl {
+    border-radius: 1.5rem;
+}
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+address p {
+    margin-bottom: 0.75rem;
+}
+address a:hover {
+    text-decoration: underline;
+}
+.bg-primary.bg-opacity-10 {
+    background-color: rgba(90, 57, 33, 0.1);
+}
+/* Отступ для якорных ссылок, чтобы компенсировать фиксированный header */
+/* :root {
+    --header-height: 6rem;
+}
+html {
+    scroll-padding-top: var(--header-height);
+    scroll-behavior: smooth;
+}
+body {
+    scroll-padding-top: var(--header-height);
+}
+#products,
+#drinks,
+#snacks {
+    scroll-margin-top: var(--header-height);
+} */
