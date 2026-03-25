@@ -4,6 +4,12 @@
         <a href="{% url 'home' %}" class="logo">
             <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="h-16">
         </a>
+        <!-- Кнопка гамбургера для мобильных -->
+        <button id="hamburger-btn" class="md:hidden text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
         <nav class="hidden md:block">
             <ul class="flex space-x-8">
                 <li><a href="{% url 'home' %}" class="text-white font-semibold hover:text-secondary transition">Главная</a></li>
@@ -20,4 +26,48 @@
             </ul>
         </nav>
     </div>
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-primary px-4 pb-4">
+        <ul class="space-y-4">
+            <li><a href="{% url 'home' %}" class="block text-white font-semibold hover:text-secondary transition py-2">Главная</a></li>
+            <li class="relative">
+                <a href="{% url 'home' %}#products" class="block text-white font-semibold hover:text-secondary transition py-2">Продукция</a>
+                <div class="pl-4 mt-2 space-y-2 border-l-2 border-secondary">
+                    <a href="{% url 'pages:beer_brands' %}" class="block text-white hover:text-secondary transition py-1">Пиво</a>
+                    <a href="{% url 'home' %}#drinks" class="block text-white hover:text-secondary transition py-1">Безалкогольные напитки</a>
+                    <a href="#snacks" class="block text-white hover:text-secondary transition py-1">Снеки</a>
+                </div>
+            </li>
+            <li><a href="{% url 'pages:about' %}" class="block text-white font-semibold hover:text-secondary transition py-2">О компании</a></li>
+            <!-- <li><a href="#contacts" class="block text-white font-semibold hover:text-secondary transition py-2">Контакты</a></li> -->
+        </ul>
+    </div>
 </header>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const svg = hamburgerBtn.querySelector('svg');
+
+        hamburgerBtn.addEventListener('click', function() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                // Меняем иконку на крестик
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                // Возвращаем иконку гамбургера
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(event) {
+            if (!hamburgerBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+    });
+</script>
