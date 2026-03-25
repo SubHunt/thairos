@@ -388,8 +388,8 @@ h1, h2 {
         grid-template-columns: 1fr;
     }
 }
-/* Стили для Sapporo */
-.sapporo-hero {
+/* Единый стиль шапки баннера для всех брендов */
+.brand-hero-common {
     background: white !important;
     color: #2c3e50;
     padding: 20px 20px;
@@ -402,7 +402,7 @@ h1, h2 {
     border: 2px solid #2c3e50;
     margin-bottom: 40px;
 }
-.sapporo-hero-content {
+.brand-hero-common-content {
     max-width: 1000px;
     padding: 20px;
     display: flex;
@@ -410,36 +410,36 @@ h1, h2 {
     align-items: center;
     justify-content: center;
 }
-.sapporo-hero img {
+.brand-hero-common img {
     max-width: 350px;
     width: 100%;
     margin-bottom: 15px;
 }
-.sapporo-hero-title {
+.brand-hero-common-title {
     font-size: 1.8rem;
     color: #2c3e50;
     margin-bottom: 10px;
     font-weight: bold;
 }
-.sapporo-hero-description {
+.brand-hero-common-description {
     font-size: 1.1rem;
     color: #2c3e50;
     line-height: 1.5;
     max-width: 800px;
 }
-/* Адаптивность для Sapporo */
+/* Адаптивность для единого стиля */
 @media (max-width: 768px) {
-    .sapporo-hero {
+    .brand-hero-common {
         padding: 30px 15px;
         min-height: 350px;
     }
-    .sapporo-hero img {
+    .brand-hero-common img {
         max-width: 250px;
     }
-    .sapporo-hero-title {
+    .brand-hero-common-title {
         font-size: 1.5rem;
     }
-    .sapporo-hero-description {
+    .brand-hero-common-description {
         font-size: 1rem;
     }
     .chess-block .chess-text {
