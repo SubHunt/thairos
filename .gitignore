@@ -6,6 +6,9 @@ __pycache__/
 *.sqlite3
 *.db
 db.sqlite3
+docs/
+TODO.md
+
 
 # Environment variables
 .env

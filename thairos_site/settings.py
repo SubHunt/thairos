@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import dj_database_url
+# import dj_database_url
 
 # Load environment variables from .env file
 load_dotenv()
@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost', '127.0.0.1')
 
 
 # Application definition
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'thairos_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASE_URL = config(
-    'DATABASE_URL', default='postgres://postgres:postgres@localhost:5432/thairos')
-DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
-}
+# DATABASE_URL = config(
+#     'DATABASE_URL', default='postgres://postgres:postgres@localhost:5432/thairos')
+# DATABASES = {
+#     'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+# }
 
 
 # Password validation
@@ -140,6 +140,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-DEBUG = False
-ALLOWED_HOSTS = ['thairos.ru', 'www.thairos.ru', '194.156.118.98']
+DEBUG = True
+ALLOWED_HOSTS = ['thairos.ru', 'www.thairos.ru',
+                 '194.156.118.98', 'localhost', '127.0.0.1']
 STATIC_ROOT = '/var/www/thairos/static/'

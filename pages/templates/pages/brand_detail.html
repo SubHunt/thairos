@@ -13,6 +13,12 @@
 <main>
     {% if slug|lower == 'singha' %}
         {% include 'pages/brand_singha.html' %}
+    {% elif slug|lower == 'singha-light' %}
+        {% include 'pages/brand_singha_light.html' %}
+    {% elif slug|lower == 'san-miguel' %}
+        {% include 'pages/brand_san_miguel.html' %}
+    {% elif slug|lower == 'sapporo' %}
+        {% include 'pages/brand_sapporo.html' %}
     {% else %}
         <!-- Общий шаблон для других брендов -->
         {% include 'pages/brand_generic.html' %}
