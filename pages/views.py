@@ -45,6 +45,12 @@ def beer_brands(request):
             'description': 'Классическое тайское пиво с мягким вкусом и ароматом хмеля.',
         },
         {
+            'name': 'SINGHA LIGHT',
+            'slug': 'singha-light',
+            'image': '/static/logos/light.jpeg',
+            'description': 'Облегчённая версия легендарного тайского пива с пониженной калорийностью и крепостью.',
+        },
+        {
             'name': 'LEO',
             'slug': 'leo',
             'image': '/static/logos/leo logo.jpg',
