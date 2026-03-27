@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Thairos — Оптово-розничная продажа пива и напитков{% endblock %}
+{% block title %}ООО ТК "ТАЙРОС" — Оптово-розничная продажа пива и напитков{% endblock %}
 
 {% block content %}
 <!-- Header -->
@@ -9,9 +9,9 @@
 <!-- Hero -->
 <section id="home" class="bg-gradient-to-r from-primary to-secondary text-black py-20">
     <div class="container mx-auto px-4 text-center">
-        <h1 class="text-5xl font-bold mb-6">Thairos — ваш надёжный партнёр в мире пива</h1>
+        <h1 class="text-5xl font-bold mb-6">ООО ТК "ТАЙРОС" — ваш надёжный партнёр в мире пива</h1>
         <p class="text-xl max-w-3xl mx-auto mb-10">
-            Мы являемся эксклюзивным импортёром и дистрибьютором премиального пива из Таиланда, Вьетнама, Японии, Сингапура и других стран на территории России.
+            Мы являемся эксклюзивным импортёром и дистрибьютором премиального пива из Таиланда, Вьетнама, и других стран Юго-Восточной Азии на территории России.
         </p>
         <div class="flex flex-col sm:flex-row gap-6 justify-center">
             <a href="#products" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300">
@@ -30,7 +30,7 @@
         <h2 class="text-4xl font-bold text-center text-primary mb-12">Категории</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="{% url 'pages:beer_brands' %}" class="block bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
-                <img src="/static/beer-glass-with-bg.png" alt="Пиво" class="w-full h-64 object-cover">
+                <img src="/static/bio-sea.jpg" alt="Пиво" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-primary mb-4">Пиво</h3>
                     <p class="text-gray-600">
@@ -39,7 +39,7 @@
                 </div>
             </a>
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
-                <img src="/static/bio-sea.jpg" alt="Напитки" class="w-full h-64 object-cover">
+                <img src="/static/freealco2.jpg" alt="Напитки" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-primary mb-4">Безалкогольные напитки</h3>
                     <p class="text-gray-600">

@@ -23,6 +23,14 @@
         {% include 'pages/brand_leo.html' %}
     {% elif slug|lower == 'saigon-lager' %}
         {% include 'pages/brand_saigon.html' %}
+    {% elif slug|lower == 'tiger' %}
+        {% include 'pages/brand_tiger.html' %}
+    {% elif slug|lower == 'hanoi-premium' %}
+        {% include 'pages/brand_hanoi_premium.html' %}
+    {% elif slug|lower == 'bia-ha-noi' %}
+        {% include 'pages/brand_bia_hanoi.html' %}
+    {% elif slug|lower == 'saigon-special' %}
+        {% include 'pages/brand_saigon_special.html' %}
     {% else %}
         <!-- Общий шаблон для других брендов -->
         {% include 'pages/brand_generic.html' %}
