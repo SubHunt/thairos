@@ -63,30 +63,6 @@ def beer_brands(request):
             'description': 'Вьетнамский лагер с чистым вкусом и золотистым цветом.',
         },
         {
-            'name': 'Saigon Special',
-            'slug': 'saigon-special',
-            'image': '/static/logos/SAIGON.png',  # можно другую картинку, но пока та же
-            'description': 'Особый сорт пива Saigon с более насыщенным вкусом.',
-        },
-        {
-            'name': 'BIA HA NOI',
-            'slug': 'bia-ha-noi',
-            'image': '/static/logos/SAIGON.png',  # нет отдельного лого, используем заглушку
-            'description': 'Традиционное вьетнамское пиво из Ханоя.',
-        },
-        {
-            'name': 'HANOI Premium',
-            'slug': 'hanoi-premium',
-            'image': '/static/logos/SAIGON.png',
-            'description': 'Премиальное пиво с богатым вкусом и ароматом.',
-        },
-        {
-            'name': 'TIGER',
-            'slug': 'tiger',
-            'image': '/static/logos/Tiger logo.png',
-            'description': 'Сингапурское пиво с ярким характером и высокой газированностью.',
-        },
-        {
             'name': 'SAN MIGUEL',
             'slug': 'san-miguel',
             'image': '/static/logos/sun miguel logo.png',
@@ -97,6 +73,30 @@ def beer_brands(request):
             'slug': 'sapporo',
             'image': '/static/logos/SAPPORO.png',
             'description': 'Японское пиво с чистым и свежим вкусом.',
+        },
+        {
+            'name': 'Saigon Special',
+            'slug': 'saigon-special',
+            'image': '/static/saigon_special/logo.jpg',
+            'description': 'Особенное пиво премиум-класса из сердца Южного Вьетнама.',
+        },
+        {
+            'name': 'BIA HA NOI',
+            'slug': 'bia-ha-noi',
+            'image': '/static/biahanoi/logo.png',
+            'description': 'Оригинальное светлое пиво из Вьетнама, основанное в 1890 году.',
+        },
+        {
+            'name': 'HANOI Premium',
+            'slug': 'hanoi-premium',
+            'image': '/static/hanoi_premium/logo.png',
+            'description': 'Премиальное светлое пиво нового поколения из сердца Вьетнама.',
+        },
+        {
+            'name': 'TIGER',
+            'slug': 'tiger',
+            'image': '/static/logos/Tiger logo.png',
+            'description': 'Сингапурское пиво с ярким характером и высокой газированностью.',
         },
         {
             'name': 'HARBIN',

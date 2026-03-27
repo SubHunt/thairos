@@ -6,6 +6,7 @@
     <title>Thairos — Подтверждение возраста</title>
     <style>
         body {
+            
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,10 +18,10 @@
             min-height: 100vh;
             text-align: center;
         }
-        .container {
+        .container {  
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 40px;
+            padding: 20px;
             max-width: 600px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             border: 2px solid #d4a574;
@@ -36,8 +37,8 @@
             margin-bottom: 30px;
         }
         .logo {
-            max-width: 200px;
-            margin-bottom: 30px;
+            max-width: 150px;
+            {% comment %} margin-bottom: 15px; {% endcomment %}
         }
         .buttons {
             display: flex;
@@ -73,17 +74,17 @@
         .warning {
             color: #8b4513;
             font-size: 0.9rem;
-            margin-top: 30px;
+            margin-top: 25px;
             border-top: 1px solid #d4a574;
-            padding-top: 20px;
+            padding-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="logo">
-        <h1>Добро пожаловать на Thairos</h1>
-        <p>Наша компания занимается оптово-розничной продажей пива, безалкогольных напитков и снеков на территории России.</p>
+        <h2>Добро пожаловать на наш сайт.</h2>
+        <p>Компания ООО ТК "ТАЙРОС" занимается оптово-розничной продажей пива, безалкогольных напитков и снеков из стран <br> Юго-Восточной Азии на территории Российской Федерации.</p>
         <p>Согласно законодательству РФ, алкогольная продукция может быть реализована только лицам, достигшим <strong>18 лет</strong>.</p>
         <p>Пожалуйста, подтвердите, что вам уже есть 18 лет.</p>
         
