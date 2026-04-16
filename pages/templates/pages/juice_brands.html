@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Thairos — Соки и безалкогольные напитки{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<!-- Hero -->
+<section class="relative bg-gradient-to-r from-green-50 to-cyan-50 text-black py-24 overflow-hidden">
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-green-900">Соки</h1>
+        <p class="text-xl max-w-3xl mx-auto text-gray-700 mb-10">
+            Откройте для себя мир натуральных соков и газированных напитков премиум-класса.
+            Без сахара, без искусственных добавок — только чистая свежесть тропических фруктов.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Без сахара</span>
+            <span class="px-4 py-2 bg-cyan-100 text-cyan-800 rounded-full text-sm font-semibold">Натуральные ингредиенты</span>
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold">Halal</span>
+            <span class="px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-semibold">0 калорий</span>
+        </div>
+    </div>
+    <!-- Декоративные элементы -->
+    <div class="absolute top-10 left-10 w-32 h-32 bg-green-200 rounded-full opacity-20"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-200 rounded-full opacity-20"></div>
+</section>
+
+<!-- Brands Grid -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Наши бренды</h2>
+        <p class="text-lg text-center text-gray-600 max-w-2xl mx-auto mb-12">
+            Каждый бренд предлагает уникальную линейку вкусов, созданную из лучших фруктов Таиланда и Вьетнама.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
+            {% for brand in brands %}
+            <a href="{% url 'pages:juice_brand_detail' slug=brand.slug %}" 
+               class="group block relative overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-3xl no-underline text-inherit">
+                <!-- Фон карточки с градиентом -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white to-gray-50 z-0"></div>
+                <!-- Акцентная полоса -->
+                <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-green-400 to-cyan-400"></div>
+                <div class="relative z-10 p-8 flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/5 mb-6 md:mb-0">
+                        <img src="{{ brand.image }}" alt="{{ brand.name }}" 
+                             class="w-48 h-48 object-contain mx-auto group-hover:rotate-6 transition-transform duration-500">
+                    </div>
+                    <div class="md:w-3/5 md:pl-8">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-3">{{ brand.name }}</h3>
+                        <p class="text-gray-700 text-lg mb-6">{{ brand.description }}</p>
+                        <div class="flex items-center text-green-600 font-semibold">
+                            <span>Узнать больше</span>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Эффект свечения при наведении -->
+                <div class="absolute inset-0 bg-gradient-to-r from-green-200/0 via-green-200/20 to-cyan-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Преимущества -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Почему выбирают наши соки?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">100% натуральный сок</h3>
+                <p class="text-gray-600">Используем только прямого отжима (NFC) без концентратов и искусственных добавок.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 text-cyan-600 rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Энергия и свежесть</h3>
+                <p class="text-gray-600">Богаты витаминами и антиоксидантами, дарят заряд бодрости и укрепляют иммунитет.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Безопасность и качество</h3>
+                <p class="text-gray-600">Сертификаты Halal, Non-GMO, BRC, FDA гарантируют высочайшие стандарты производства.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+{% endblock %}

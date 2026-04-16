@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+
+{% block title %}Thairos — {{ brand.name }}{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<!-- Hero Section -->
+<section class="relative py-20 overflow-hidden bg-gradient-to-br from-green-50 to-cyan-100">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 mb-12 lg:mb-0">
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">{{ brand.name }}</h1>
+                <p class="text-xl text-gray-700 mb-8 max-w-2xl">{{ brand.full_description }}</p>
+                <div class="flex flex-wrap gap-3">
+                    {% for feature in brand.key_features %}
+                    <span class="px-4 py-2 bg-white/80 backdrop-blur-sm text-green-800 rounded-full text-sm font-semibold shadow-sm">
+                        {{ feature }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <img src="{{ brand.hero_image }}" alt="{{ brand.name }}" 
+                     class="max-w-md w-full h-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </div>
+    <!-- Декоративные элементы -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-green-300 rounded-full opacity-10 -translate-y-32 translate-x-32"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-cyan-300 rounded-full opacity-10 -translate-x-40 translate-y-40"></div>
+</section>
+
+<!-- Flavors Grid -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Линейка вкусов</h2>
+        <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
+            Каждый вкус — это уникальное сочетание натуральных ингредиентов и передовой технологии производства.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for flavor in brand.flavors %}
+            <div class="group relative bg-gradient-to-b from-white to-gray-50 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <!-- Акцентный угол (цвет зависит от вкуса) -->
+                {% if flavor.name == "Оригинальный" %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-bl-3xl"></div>
+                {% elif flavor.name == "Японская слива (Ume)" %}
+                <div class="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl" style="background: linear-gradient(to bottom right, #72a200, #a0d200);"></div>
+                {% elif flavor.name == "Кремовый" %}
+                <div class="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl" style="background: linear-gradient(to bottom right, #13917b, #1bc5a9);"></div>
+                {% elif flavor.name == "Розовый" %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-300 rounded-bl-3xl"></div>
+                {% elif flavor.name == "Арбуз" %}
+                <div class="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl" style="background: linear-gradient(to bottom right, #eb040c, #ff4d54);"></div>
+                {% elif flavor.name == "Розовая гуава" %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-300 rounded-bl-3xl"></div>
+                {% elif flavor.name == "Маракуйя" %}
+                <div class="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl" style="background: linear-gradient(to bottom right, #70025b, #a03a8c);"></div>
+                {% elif flavor.name == "Манго" %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-300 rounded-bl-3xl"></div>
+                {% else %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-400 to-cyan-400 rounded-bl-3xl"></div>
+                {% endif %}
+                <div class="p-6">
+                    <div class="mb-6 flex justify-center">
+                        <img src="{{ flavor.image }}" alt="{{ flavor.name }}" 
+                             class="w-48 h-48 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ flavor.name }}</h3>
+                    <p class="text-gray-700 mb-6">{{ flavor.description }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% for feat in flavor.features %}
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">
+                            {{ feat }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Эффект при наведении (цвет зависит от вкуса) -->
+                {% if flavor.name == "Оригинальный" %}
+                <div class="absolute inset-0 bg-gradient-to-r from-yellow-200/0 via-yellow-200/30 to-amber-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% elif flavor.name == "Японская слива" %}
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(to right, #72a20000, #72a20030, #a0d20000);"></div>
+                {% elif flavor.name == "Кремовый" %}
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(to right, #13917b00, #13917b30, #1bc5a900);"></div>
+                {% elif flavor.name == "Розовый" %}
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-200/0 via-pink-200/30 to-rose-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% elif flavor.name == "Арбуз" %}
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(to right, #eb040c00, #eb040c30, #ff4d5400);"></div>
+                {% elif flavor.name == "Розовая гуава" %}
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-200/0 via-pink-200/30 to-rose-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% elif flavor.name == "Маракуйя" %}
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(to right, #70025b00, #70025b30, #a03a8c00);"></div>
+                {% elif flavor.name == "Манго" %}
+                <div class="absolute inset-0 bg-gradient-to-r from-orange-200/0 via-orange-200/30 to-yellow-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% else %}
+                <div class="absolute inset-0 bg-gradient-to-r from-green-200/0 via-green-200/30 to-cyan-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Key Features -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Ключевые преимущества</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for feature in brand.key_features %}
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-cyan-400 text-white rounded-full mb-6 text-2xl font-bold">
+                    {{ forloop.counter }}
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4">{{ feature }}</h3>
+                <p class="text-gray-600">
+                    {% if feature == 'НАСТОЯЩИЙ ЛИМОННЫЙ СОК' %}
+                    В основе — концентрат натурального лимонного сока, а не искусственные ароматизаторы.
+                    {% elif feature == 'ИДЕАЛЬНАЯ ГАЗАЦИЯ' %}
+                    Тщательно выверенный уровень карбонизации раскрывает аромат и усиливает свежесть.
+                    {% elif feature == 'БЕЗ САХАРА И КАЛОРИЙ' %}
+                    Все вкусы не содержат сахара и калорий, подходят для ежедневного употребления.
+                    {% elif feature == 'СЕРТИФИКАТ HALAL' %}
+                    Продукция сертифицирована для мусульман и вегетарианцев.
+                    {% elif feature == '85% НАТУРАЛЬНОГО СОКА' %}
+                    Рекордный показатель среди газированных напитков.
+                    {% elif feature == 'NFC ТЕХНОЛОГИЯ (ПРЯМОЙ ОТЖИМ)' %}
+                    Сохраняет все витамины и минералы свежего плода.
+                    {% elif feature == 'БЕЗ САХАРА' %}
+                    Естественная сладость только от фрукта.
+                    {% elif feature == 'МЕЖДУНАРОДНЫЕ СЕРТИФИКАТЫ' %}
+                    BRC, FDA, FSSC 22000, GMP, HACCP, Halal, Non-GMO.
+                    {% endif %}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Дополнительная информация для Singha Soda -->
+{% if brand.slug == 'singha-soda' %}
+<!-- История бренда -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Рождённая из духа Singha</h2>
+                <div class="prose prose-lg text-gray-700">
+                    <p>{{ brand.history }}</p>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <img src="/static/alcofree/singha_soda/banner5.jpg" alt="История Singha Soda"
+                     class="rounded-2xl shadow-xl max-w-md w-full h-auto">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Философия -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+                <img src="/static/alcofree/singha_soda/orig.webp" alt="Философия Singha Soda"
+                     class="rounded-2xl shadow-xl max-w-md w-full h-auto">
+            </div>
+            <div class="order-1 lg:order-2">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Ежедневное удовольствие</h2>
+                <div class="prose prose-lg text-gray-700">
+                    <p>{{ brand.philosophy }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Характеристики -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Технические характеристики</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-gradient-to-r from-green-50 to-cyan-50 rounded-2xl p-8 shadow-lg">
+                <ul class="space-y-4">
+                    {% for char in brand.characteristics %}
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-gray-800">{{ char }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Дополнительные изображения -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Галерея</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for img in brand.additional_images %}
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <img src="{{ img }}" alt="Singha Soda изображение {{ forloop.counter }}"
+                     class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Контактная форма -->
+{% include 'includes/contact_form.html' %}
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+{% endblock %}

@@ -1,0 +1,52 @@
+<svg width="200" height="200" viewBox="0 0 200 200" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Рис — иконка</title>
+  <desc>Минималистичная иконка колоска риса в круге с закрашенными зёрнами</desc>
+
+  <style>
+    .s { fill: none; stroke: #1a1a1a; stroke-linecap: round; stroke-linejoin: round; }
+    .grain { fill: #1a1a1a; stroke: none; }
+    .stem { fill: none; stroke: #1a1a1a; stroke-linecap: round; }
+  </style>
+
+  <!-- Outer circle -->
+  <circle cx="100" cy="100" r="86" class="s" stroke-width="4.5"/>
+
+  <!-- Stem -->
+  <line x1="100" y1="168" x2="100" y2="48" class="stem" stroke-width="3.5"/>
+
+  <!-- Top center grain -->
+  <ellipse cx="100" cy="40" rx="7.5" ry="12" class="grain"/>
+
+  <!-- Left grains -->
+  <g transform="rotate(-40 100 76)">
+    <line x1="100" y1="76" x2="100" y2="66" class="stem" stroke-width="2.2"/>
+    <ellipse cx="100" cy="55" rx="7" ry="11.5" class="grain"/>
+  </g>
+  <g transform="rotate(-30 100 96)">
+    <line x1="100" y1="96" x2="100" y2="86" class="stem" stroke-width="2.2"/>
+    <ellipse cx="100" cy="75" rx="7" ry="11.5" class="grain"/>
+  </g>
+  <g transform="rotate(-18 100 116)">
+    <line x1="100" y1="116" x2="100" y2="106" class="stem" stroke-width="2.2"/>
+    <ellipse cx="100" cy="95" rx="7" ry="11.5" class="grain"/>
+  </g>
+
+  <!-- Right grains -->
+  <g transform="rotate(40 100 76)">
+    <line x1="100" y1="76" x2="100" y2="66" class="stem" stroke-width="2.2"/>
+    <ellipse cx="100" cy="55" rx="7" ry="11.5" class="grain"/>
+  </g>
+  <g transform="rotate(30 100 96)">
+    <line x1="100" y1="96" x2="100" y2="86" class="stem" stroke-width="2.2"/>
+    <ellipse cx="100" cy="75" rx="7" ry="11.5" class="grain"/>
+  </g>
+  <g transform="rotate(18 100 116)">
+    <line x1="100" y1="116" x2="100" y2="106" class="stem" stroke-width="2.2"/>
+    <ellipse cx="100" cy="95" rx="7" ry="11.5" class="grain"/>
+  </g>
+
+  <!-- Leaves at base -->
+  <path d="M100 150 Q84 142 80 155" class="s" stroke-width="2.2"/>
+  <path d="M100 154 Q116 146 120 159" class="s" stroke-width="2.2"/>
+
+</svg>

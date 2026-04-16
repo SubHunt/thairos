@@ -31,6 +31,10 @@
         {% include 'pages/brand_bia_hanoi.html' %}
     {% elif slug|lower == 'saigon-special' %}
         {% include 'pages/brand_saigon_special.html' %}
+    {% elif slug|lower == 'kingfisher' %}
+        {% include 'pages/brand_kingfisher.html' %}
+    {% elif slug|lower == 'valech-beer' %}
+        {% include 'pages/brand_valech.html' %}
     {% else %}
         <!-- Общий шаблон для других брендов -->
         {% include 'pages/brand_generic.html' %}
