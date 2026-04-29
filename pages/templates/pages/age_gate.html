@@ -7,247 +7,203 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            height: 100vh;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
+            overflow: hidden;
         }
         
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
+        .container-compact {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 1rem;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
-        .pulse-ring {
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+        }
+        
+        .pulse-icon {
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.7; }
+            0% { transform: scale(0.95); opacity: 0.8; }
             50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(0.95); opacity: 0.8; }
         }
         
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .logo-float {
+            animation: gentleFloat 6s ease-in-out infinite;
         }
         
-        .btn-confirm {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-confirm:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
-        }
-        
-        .btn-deny {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-deny:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(239, 68, 68, 0.4);
-        }
-        
-        .age-counter {
-            transition: all 0.5s ease;
-        }
-        
-        .beer-bubble {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: bubble-float 15s linear infinite;
-        }
-        
-        @keyframes bubble-float {
-            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid #10b981;
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #10b981 }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
     </style>
 </head>
 <body class="text-gray-100">
-    <!-- Декоративные элементы -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="beer-bubble w-6 h-6 left-10" style="animation-delay: 0s;"></div>
-        <div class="beer-bubble w-8 h-8 left-1/4" style="animation-delay: 2s;"></div>
-        <div class="beer-bubble w-5 h-5 left-1/2" style="animation-delay: 4s;"></div>
-        <div class="beer-bubble w-7 h-7 left-3/4" style="animation-delay: 6s;"></div>
-        <div class="beer-bubble w-4 h-4 left-20" style="animation-delay: 8s;"></div>
-        <div class="beer-bubble w-9 h-9 left-2/3" style="animation-delay: 10s;"></div>
-    </div>
-    
     <!-- Основной контейнер -->
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <div class="glass-effect rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative">
-            <!-- Логотип и заголовок -->
-            <div class="text-center mb-10">
-                <div class="floating-element inline-block mb-6">
-                    <div class="relative">
-                        <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="w-48 mx-auto">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full blur-xl -z-10"></div>
-                    </div>
+    <div class="container-compact">
+        <div class="glass-card">
+            <!-- Логотип с плавающей анимацией -->
+            <div class="text-center mb-4">
+                <div class="logo-float inline-block">
+                    <img src="/static/tayros_v3_ivory_transparent.png" alt="Thairos" class="w-28 mx-auto">
                 </div>
-                <div class="text-center mb-8">
-                    {% comment %} <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-full mb-4 pulse-ring">
-                        <i class="fas fa-exclamation-triangle text-3xl text-amber-400"></i>
-                    </div> {% endcomment %}
-                    <h2 class="text-3xl font-bold mb-4">Подтверждение возраста</h2>
-                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-                        Компания ООО ТК "ТАЙРОС" занимается оптово-розничной продажей пива, безалкогольных напитков и снеков из стран Юго-Восточной Азии.
-                    </p>
-                </div>
-                {% comment %} <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">
-                    Добро пожаловать в мир Thairos
-                </h1> {% endcomment %}
-                
-                {% comment %} <div class="typewriter max-w-2xl mx-auto">
-                    <p class="text-xl text-gray-300">Эксклюзивные напитки из Юго-Восточной Азии</p>
-                </div> {% endcomment %}
             </div>
             
-            {% comment %} <!-- Контент с иконками -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full mb-4">
-                        <i class="fas fa-beer text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Премиальное пиво</h3>
-                    <p class="text-gray-400">Эксклюзивные сорта из Таиланда, Вьетнама, Сингапура</p>
+            <!-- Заголовок -->
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-full mb-3 pulse-icon">
+                    <i class="fas fa-exclamation-triangle text-lg text-amber-400"></i>
                 </div>
-                
-                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full mb-4">
-                        <i class="fas fa-glass-whiskey text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Натуральные соки</h3>
-                    <p class="text-gray-400">Свежие газированные напитки без сахара и консервантов</p>
-                </div>
-                
-                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full mb-4">
-                        <i class="fas fa-cookie-bite text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Азиатские снеки</h3>
-                    <p class="text-gray-400">Уникальные закуски к напиткам из стран Азии</p>
-                </div>
-            </div> {% endcomment %}
+                <h1 class="text-xl font-bold mb-2">Подтверждение возраста</h1>
+                <p class="text-gray-300 text-sm max-w-md mx-auto">
+                    Компания ООО ТК "ТАЙРОС" — оптово-розничная продажа напитков и снеков из Юго-Восточной Азии.
+                </p>
+            </div>
             
-            <!-- Возрастное подтверждение -->
-            <div class="mb-10">
-
-                
-                <div class="bg-gradient-to-r from-amber-900/30 to-amber-800/30 border border-amber-700/30 rounded-2xl p-6 mb-8">
-                    <div class="flex flex-col md:flex-row items-center justify-between">
-                        <div class="mb-6 md:mb-0 md:mr-6">
-                            <h3 class="text-2xl font-bold text-amber-300 mb-2">Согласно законодательству РФ</h3>
-                            <p class="text-gray-300">
-                                Алкогольная продукция может быть реализована только лицам, достигшим <span class="font-bold text-white text-xl">18 лет</span>.
-                            </p>
-                        </div>
-                        
-                        <!-- Интерактивный счётчик возраста -->
-                        <div class="bg-gray-900/50 rounded-xl p-4 min-w-[180px] text-center">
-                            <p class="text-gray-400 text-sm mb-2">Ваш возраст должен быть</p>
-                            <div class="flex items-center justify-center space-x-2">
-                                <div class="age-counter text-4xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
-                                    18+
-                                </div>
-                                <i class="fas fa-check-circle text-2xl text-emerald-500"></i>
+            <!-- Информационный блок -->
+            <div class="bg-gradient-to-r from-amber-900/15 to-amber-800/15 border border-amber-700/20 rounded-lg p-3 mb-6">
+                <div class="flex items-center justify-between">
+                    <div class="pr-2">
+                        <h2 class="text-sm font-bold text-amber-300 mb-1">Согласно законодательству РФ</h2>
+                        <p class="text-gray-300 text-xs">
+                            Алкоголь — только с <span class="font-bold text-white">18 лет</span>.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-900/40 rounded-lg p-2 text-center min-w-[100px]">
+                        <p class="text-gray-400 text-xs mb-1">Минимальный возраст</p>
+                        <div class="flex items-center justify-center">
+                            <div class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
+                                18+
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <p class="text-center text-xl text-gray-300 mb-10">
-                    Пожалуйста, подтвердите, что вам уже есть 18 лет.
-                </p>
-                
-                <!-- Форма с кнопками -->
-                <form method="post" class="max-w-md mx-auto">
-                    {% csrf_token %}
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                        <button type="submit" name="confirm" 
-                                class="btn-confirm text-white font-bold py-4 px-10 rounded-2xl text-lg flex items-center justify-center gap-3">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Да, мне есть 18 лет</span>
-                        </button>
-                        
-                        <button type="button" onclick="showExitAnimation()" 
-                                class="btn-deny text-white font-bold py-4 px-10 rounded-2xl text-lg flex items-center justify-center gap-3">
-                            <i class="fas fa-times-circle"></i>
-                            <span>Мне нет 18 лет</span>
-                        </button>
-                    </div>
-                </form>
             </div>
             
-            <!-- Предупреждение -->
-            <div class="mt-12 pt-8 border-t border-gray-700/50">
-                <div class="flex flex-col md:flex-row items-center justify-center">
-                    <div class="mb-6 md:mb-0">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-heartbeat text-2xl text-rose-500"></i>
-                            <p class="text-gray-400 text-lg">
-                                <span class="font-bold text-rose-400">Чрезмерное употребление алкоголя вредит вашему здоровью.</span>
-                                {% comment %} <br>Пейте ответственно. {% endcomment %}
-                            </p>
-                        </div>
-                    </div>
+            <!-- Основной текст -->
+            <div class="text-center mb-6">
+                <p class="text-gray-300 font-medium">
+                    Подтвердите, что вам уже есть 18 лет.
+                </p>
+            </div>
+            
+            <!-- Кнопки -->
+            <form method="post" class="mb-5">
+                {% csrf_token %}
+                <div class="flex flex-col gap-3">
+                    <button type="submit" name="confirm" 
+                            class="btn-primary text-white font-semibold py-3 rounded-xl text-base flex items-center justify-center gap-2">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Да, мне есть 18 лет</span>
+                    </button>
                     
-                    {% comment %} <div class="flex items-center gap-4">
-                        <div class="text-right">
-                            <p class="text-sm text-gray-500">Thairos © 2025</p>
-                            <p class="text-xs text-gray-600">Все права защищены</p>
-                        </div>
-                        <div class="w-10 h-10 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
-                    </div> {% endcomment %}
+                    <button type="button" onclick="showExitMessage()" 
+                            class="btn-secondary text-white font-semibold py-3 rounded-xl text-base flex items-center justify-center gap-2">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Мне нет 18 лет</span>
+                    </button>
                 </div>
+            </form>
+            
+            <!-- Предупреждение -->
+            <div class="pt-4 border-t border-gray-700/30">
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fas fa-heartbeat text-rose-500"></i>
+                    <p class="text-gray-400 text-xs text-center">
+                        <span class="text-rose-400 font-medium">Чрезмерное употребление алкоголя вредит здоровью.</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Копирайт -->
+            <div class="mt-4 text-center">
+                <p class="text-xs text-gray-600">Thairos © 2025</p>
             </div>
         </div>
     </div>
     
-    <!-- Скрипт для интерактивности -->
+    <!-- Упрощённый скрипт -->
     <script>
-        // Анимация при наведении на кнопки
+        function showExitMessage() {
+            // Простой overlay без анимаций
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'rgba(0, 0, 0, 0.95)';
+            overlay.style.zIndex = '9999';
+            overlay.style.display = 'flex';
+            overlay.style.justifyContent = 'center';
+            overlay.style.alignItems = 'center';
+            overlay.style.flexDirection = 'column';
+            overlay.style.color = 'white';
+            
+            overlay.innerHTML = `
+                <div class="text-center p-4 max-w-xs">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-500/30 to-yellow-500/30 rounded-full mb-4">
+                        <i class="fas fa-lock text-2xl text-amber-400"></i>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3">Доступ ограничен</h2>
+                    <p class="text-gray-300 mb-4 text-sm">Возвращайтесь, когда вам исполнится 18 лет</p>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            // Перенаправление через 2 секунды
+            setTimeout(() => {
+                window.location.href = 'https://www.google.com';
+            }, 2000);
+        }
+        
+        // Hover-эффекты для кнопок
         document.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-3px)';
@@ -257,66 +213,6 @@
                 this.style.transform = 'translateY(0)';
             });
         });
-        
-        // Функция для кнопки "Мне нет 18 лет"
-        function showExitAnimation() {
-            const container = document.querySelector('.glass-effect');
-            container.style.animation = 'shake 0.5s ease-in-out';
-            
-            // Создаём эффект затемнения
-            const overlay = document.createElement('div');
-            overlay.style.position = 'fixed';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.background = 'rgba(0, 0, 0, 0.9)';
-            overlay.style.zIndex = '9998';
-            overlay.style.display = 'flex';
-            overlay.style.justifyContent = 'center';
-            overlay.style.alignItems = 'center';
-            overlay.style.flexDirection = 'column';
-            overlay.style.color = 'white';
-            overlay.style.fontSize = '2rem';
-            overlay.style.fontWeight = 'bold';
-            overlay.innerHTML = `
-                <div class="text-center p-8">
-                    <i class="fas fa-lock text-5xl text-amber-500 mb-6"></i>
-                    <h2 class="text-3xl mb-4">Доступ ограничен</h2>
-                    <p class="text-xl text-gray-300 mb-8">Возвращайтесь, когда вам исполнится 18 лет</p>
-                    <div class="animate-pulse">
-                        <i class="fas fa-arrow-right text-2xl text-emerald-400"></i>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(overlay);
-            
-            // Через 3 секунды перенаправляем на Google
-            setTimeout(() => {
-                window.location.href = 'https://www.google.com';
-            }, 3000);
-        }
-        
-        // Добавляем анимацию тряски
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                20%, 40%, 60%, 80% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Анимация счётчика
-        const ageCounter = document.querySelector('.age-counter');
-        setInterval(() => {
-            ageCounter.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                ageCounter.style.transform = 'scale(1)';
-            }, 200);
-        }, 3000);
     </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Thairos — Соки и безалкогольные напитки{% endblock %}
+{% block title %}Thairos — Сокосодержащие и газированные напитки{% endblock %}
 
 {% block content %}
 <!-- Header -->
@@ -9,16 +9,16 @@
 <!-- Hero -->
 <section class="relative bg-gradient-to-r from-green-50 to-cyan-50 text-black py-24 overflow-hidden">
     <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-green-900">Соки</h1>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-green-900">Напитки</h1>
         <p class="text-xl max-w-3xl mx-auto text-gray-700 mb-10">
-            Откройте для себя мир натуральных соков и газированных напитков премиум-класса.
+            Откройте для себя мир натуральных сокосодержащих напитков премиум-класса.
             Без сахара, без искусственных добавок — только чистая свежесть тропических фруктов.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Без сахара</span>
-            <span class="px-4 py-2 bg-cyan-100 text-cyan-800 rounded-full text-sm font-semibold">Натуральные ингредиенты</span>
-            <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold">Halal</span>
-            <span class="px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-semibold">0 калорий</span>
+        <div class="flex flex-wrap justify-center gap-6">
+            <span class="px-6 py-3 bg-green-100 text-green-800 rounded-full text-lg font-bold">Без сахара</span>
+            <span class="px-6 py-3 bg-cyan-100 text-cyan-800 rounded-full text-lg font-bold">Натуральные ингредиенты</span>
+            <span class="px-6 py-3 bg-yellow-100 text-yellow-800 rounded-full text-lg font-bold">Halal</span>
+            <span class="px-6 py-3 bg-pink-100 text-pink-800 rounded-full text-lg font-bold">0 калорий</span>
         </div>
     </div>
     <!-- Декоративные элементы -->
@@ -49,12 +49,14 @@
                     <div class="md:w-3/5 md:pl-8">
                         <h3 class="text-3xl font-bold text-gray-900 mb-3">{{ brand.name }}</h3>
                         <p class="text-gray-700 text-lg mb-6">{{ brand.description }}</p>
+                        {% comment %} {# Убрали текст "Узнать больше" по требованию заказчика
                         <div class="flex items-center text-green-600 font-semibold">
                             <span>Узнать больше</span>
                             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </div>
+                        #} {% endcomment %}
                     </div>
                 </div>
                 <!-- Эффект свечения при наведении -->
@@ -68,7 +70,7 @@
 <!-- Преимущества -->
 <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Почему выбирают наши соки?</h2>
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Почему выбирают наши напитки?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-6">

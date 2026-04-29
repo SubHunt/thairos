@@ -139,6 +139,85 @@
     </div>
 </section>
 
+<!-- Coffee Section (only for Vinut) -->
+{% if brand.slug == 'vinut-sparkling' and brand.coffee_flavors %}
+<section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Кофейная линейка</h2>
+        <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
+            Насладитесь богатым вкусом кофе в удобной банке 250 мл. Идеально для утреннего пробуждения или дневного перерыва.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for coffee in brand.coffee_flavors %}
+            <div class="group relative rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2
+                {% if coffee.name == 'Капучино' %}
+                    bg-gradient-to-b from-[#293658]/10 to-white
+                {% elif coffee.name == 'Латте' %}
+                    bg-gradient-to-b from-[#4e2d55]/10 to-white
+                {% elif coffee.name == 'Айс кофе' %}
+                    bg-gradient-to-b from-[#764123]/10 to-white
+                {% else %}
+                    bg-gradient-to-b from-amber-50 to-white
+                {% endif %}
+            ">
+                <!-- Акцентный угол с индивидуальным цветом -->
+                <div class="absolute top-0 right-0 w-16 h-16 rounded-bl-3xl
+                    {% if coffee.name == 'Капучино' %}
+                        bg-[#293658]
+                    {% elif coffee.name == 'Латте' %}
+                        bg-[#4e2d55]
+                    {% elif coffee.name == 'Айс кофе' %}
+                        bg-[#764123]
+                    {% else %}
+                        bg-amber-500
+                    {% endif %}
+                "></div>
+                <!-- Изображение -->
+                <div class="p-6 flex justify-center">
+                    <img src="{{ coffee.image }}" alt="{{ coffee.name }}"
+                         class="w-48 h-48 object-contain group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <!-- Контент -->
+                <div class="p-6">
+                    <div class="mb-6 flex justify-center">
+                        <h3 class="text-2xl font-bold
+                            {% if coffee.name == 'Капучино' %}
+                                text-[#293658]
+                            {% elif coffee.name == 'Латте' %}
+                                text-[#4e2d55]
+                            {% elif coffee.name == 'Айс кофе' %}
+                                text-[#764123]
+                            {% else %}
+                                text-amber-800
+                            {% endif %}
+                        ">{{ coffee.name }}</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6 text-center">{{ coffee.description }}</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        {% for feat in coffee.features %}
+                        <span class="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium border border-gray-200
+                            {% if coffee.name == 'Капучино' %}
+                                text-[#293658]
+                            {% elif coffee.name == 'Латте' %}
+                                text-[#4e2d55]
+                            {% elif coffee.name == 'Айс кофе' %}
+                                text-[#764123]
+                            {% else %}
+                                text-amber-800
+                            {% endif %}
+                        ">
+                            {{ feat }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- Дополнительная информация для Singha Soda -->
 {% if brand.slug == 'singha-soda' %}
 <!-- История бренда -->
@@ -180,7 +259,7 @@
 <!-- Характеристики -->
 <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Технические характеристики</h2>
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Характеристики</h2>
         <div class="max-w-3xl mx-auto">
             <div class="bg-gradient-to-r from-green-50 to-cyan-50 rounded-2xl p-8 shadow-lg">
                 <ul class="space-y-4">
@@ -209,6 +288,28 @@
                      class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
             </div>
             {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Видео для Vinut -->
+{% if brand.slug == 'vinut-sparkling' %}
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Видео о бренде Vinut</h2>
+        <div class="max-w-4xl mx-auto">
+            <div class="video-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <div style="max-width: 800px; width: 100%;">
+                    <video controls style="width: 100%; max-height: 500px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                        <source src="/static/alcofree/vinut/Vinut Sparkling 85_.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+                <p class="text-gray-600 mt-6 text-lg max-w-3xl mx-auto">
+                    Посмотрите, как создаются наши освежающие напитки — от отбора фруктов до розлива в банки.
+                </p>
+            </div>
         </div>
     </div>
 </section>

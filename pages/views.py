@@ -108,7 +108,7 @@ def beer_brands(request):
             'name': 'Valech Beer',
             'slug': 'valech-beer',
             'image': '/static/logos/Valech Logo.jpg',
-            'description': 'Чешское пиво, сваренное по классическим технологиям.',
+            'description': 'Светлое пиво европейского качества.',
         },
     ]
     return render(request, 'pages/beer_brands.html', {'brands': brands})
@@ -125,14 +125,14 @@ def juice_brands(request):
         {
             'name': 'SINGHA SODA',
             'slug': 'singha-soda',
-            'image': '/static/alcofree/singha_soda/original.png',
-            'description': 'Освежающая содовая с лимоном из Таиланда.',
+            'image': '/static/alcofree/singha_soda/singha_logo.jpg',
+            'description': 'Освежающий сокосодержащий напиток с лимоном из Таиланда.',
         },
         {
-            'name': 'VINUT SPARKLING NFC JUICE',
+            'name': 'VINUT',
             'slug': 'vinut-sparkling',
-            'image': '/static/alcofree/vinut/watermelon.png',
-            'description': 'Газированный сок премиум-класса из тропических фруктов Вьетнама.',
+            'image': '/static/alcofree/vinut/vinut_logo.png',
+            'description': 'Сокосодержащий напиток премиум-класса из тропических фруктов Вьетнама.',
         },
     ]
     return render(request, 'pages/juice_brands.html', {'brands': brands})
@@ -145,13 +145,13 @@ def juice_brand_detail(request, slug):
         'singha-soda': {
             'name': 'SINGHA SODA',
             'slug': 'singha-soda',
-            'hero_image': '/static/alcofree/singha_soda/original.png',
-            'description': 'Освежающая содовая с лимоном из Таиланда.',
+            'hero_image': '/static/alcofree/singha_soda/singha_logo.jpg',
+            'description': 'Освежающий сокосодержащий напиток с лимоном из Таиланда.',
             'full_description': 'Singha Lemon Soda — это новая глава легендарной истории Boon Rawd Brewery, написанная для нового поколения. Напиток с уникальным вкусом — идеальное сочетание настоящей лимонной кислинки и игристой свежести, без сахара и без калорий.',
             'history': 'Это не просто газировка — это новая глава легендарной истории Boon Rawd Brewery, написанная для нового поколения. Singha Lemon Soda появилась по инициативе Бурита Бхиромбхакди — наследника основателя великой пивоварни — как ответ на запросы рынка и потребителей, ищущих напиток с уникальным вкусом. В 2020 году, когда мир переосмыслял своё отношение к здоровому образу жизни, Singha сделала смелый шаг: выпустила безалкогольный напиток, достойный имени легенды.',
             'philosophy': 'Singha Lemon Soda воплощает простую и честную идею: освежение не должно идти в ущерб здоровью. Это напиток, который прославляет игристость и идеальное сочетание настоящей лимонной кислинки — без сахара и с нулевым содержанием калорий. Он одинаково хорош и как самостоятельный напиток в жаркий день, и как основа для оригинальных миксов: Honey Lemon Soda, Raspberry Lemon Soda, Mint Lemon Soda, Soda Mojito Mocktail или Shandy Yor Yak Thai Eatery — фантазии нет предела.',
             'characteristics': [
-                'Категория: Газированный безалкогольный напиток с лимонным соком',
+                'Категория: Сокосодержащий безалкогольный напиток с лимонным соком',
                 'Сахар: 0 г',
                 'Калории: 0 ккал',
                 'Кофеин: отсутствует',
@@ -199,10 +199,10 @@ def juice_brand_detail(request, slug):
             ],
         },
         'vinut-sparkling': {
-            'name': 'VINUT SPARKLING NFC JUICE',
+            'name': 'VINUT',
             'slug': 'vinut-sparkling',
-            'hero_image': '/static/alcofree/vinut/watermelon.png',
-            'description': 'Газированный сок премиум-класса из тропических фруктов Вьетнама.',
+            'hero_image': '/static/alcofree/vinut/vinut_logo.png',
+            'description': 'Сокосодержащий напиток премиум-класса из тропических фруктов Вьетнама.',
             'full_description': 'VINUT — это натуральные полезные напитки из тропических фруктов Вьетнама, приготовленные методом прямого отжима (NFC — Not From Concentrate). Все продукты изготовлены из 100% натуральных ингредиентов, без концентратов и без добавления консервантов.',
             'flavors': [
                 {
@@ -236,6 +236,26 @@ def juice_brand_detail(request, slug):
                 'БЕЗ САХАРА',
                 'МЕЖДУНАРОДНЫЕ СЕРТИФИКАТЫ',
             ],
+            'coffee_flavors': [
+                {
+                    'name': 'Латте',
+                    'image': '/static/alcofree/vinut/cofffee/V_Mockup_250ml_Coffee late.png',
+                    'description': 'Нежный кофейный напиток с молоком, идеальный баланс кофе и сливочности.',
+                    'features': ['250 мл', 'Содержит молоко', 'Средняя крепость', 'Без искусственных ароматизаторов'],
+                },
+                {
+                    'name': 'Айс кофе',
+                    'image': '/static/alcofree/vinut/cofffee/V_Mockup_250ml_Ice Coffee.png',
+                    'description': 'Освежающий холодный кофе с лёгкой сладостью, идеален для жаркого дня.',
+                    'features': ['250 мл', 'Холодный напиток', 'Низкая калорийность', 'Без ГМО'],
+                },
+                {
+                    'name': 'Капучино',
+                    'image': '/static/alcofree/vinut/cofffee/V_Mockup_250ml_Coffee cappuchino.png',
+                    'description': 'Классический итальянский кофе с воздушной молочной пенкой и насыщенным вкусом.',
+                    'features': ['250 мл', 'Пышная пенка', 'Средняя обжарка', 'Без консервантов'],
+                },
+            ],
         },
     }
 
@@ -245,3 +265,52 @@ def juice_brand_detail(request, slug):
         raise Http404("Бренд не найден")
 
     return render(request, 'pages/juice_brand_detail.html', {'brand': brand})
+
+
+def snacks_landing(request):
+    """Лендинг-страница снеков Masita Singha"""
+    product = {
+        'name': 'Masita Singha Fried Seaweed',
+        'title': 'Жареные водоросли Masita Singha 36 г',
+        'subtitle': 'Хрустящий вкус моря',
+        'description': 'Насладитесь настоящим вкусом корейской кухни с Masita Singha Fried Seaweed. Это не просто снек – это полезная альтернатива чипсам и сухарикам.',
+        'logo': '/static/snacks/logo.png',
+        'hero_image': '/static/snacks/Masita Original.png',
+        'images': [
+            '/static/snacks/Masita Original.png',
+            '/static/snacks/masita spicy.jfif',
+            '/static/snacks/masita-group.jpg',
+            '/static/snacks/7a92eac02ade857a2c605f906ac024e62389b7e4_hq.jpg',
+        ],
+        'features': [
+            'Идеальный хруст – водоросли обжариваются особым способом, оставаясь лёгкими и хрустящими.',
+            'Чистый вкус – никакой горечи, только натуральная солёность водорослей.',
+            '36 граммов – достаточно, чтобы утолить голод, но не оставить тяжести.',
+            'Здоровый перекус – низкая калорийность, нет трансжиров, содержит природный йод.',
+        ],
+        'usage': [
+            'Просто откройте и ешьте',
+            'Покрошите в рис или лапшу',
+            'Добавьте в салат вместо гренок',
+        ],
+        'composition': 'Морские водоросли, растительное масло, соль (возможны натуральные специи в зависимости от партии).',
+        'storage': 'Хранить в сухом, прохладном месте при температуре до +25°C. После вскрытия плотно закрывать упаковку и употребить в течение 2–3 дней.',
+        'characteristics': [
+            'Вес — 36 г',
+            'Тип — Жареные водоросли',
+            'Вкус — Солоноватый, неострый',
+            'Подходит для — Веганов, вегетарианцев',
+            'Страна производства — Таиланд / Корея',
+        ],
+    }
+    return render(request, 'pages/snacks_landing.html', {'product': product})
+
+
+def where_to_buy(request):
+    """Страница 'Где купить'"""
+    return render(request, 'pages/where_to_buy.html')
+
+
+def terms(request):
+    """Страница 'Условия сотрудничества'"""
+    return render(request, 'pages/terms.html')

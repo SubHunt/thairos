@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Условия сотрудничества | Thairos{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<div class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- Заголовок -->
+    <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Условия сотрудничества</h1>
+        <p class="text-lg text-gray-600">
+            Прозрачные и выгодные условия для наших партнёров. Вся информация о минимальных партиях, оплате, доставке и требованиях.
+        </p>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <div class="prose prose-lg max-w-none">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Минимальная партия</h2>
+            <p class="text-gray-700 text-xl font-semibold mb-8">от 60 тыс. руб</p>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Продажа</h2>
+            <p class="text-gray-700 mb-6">
+                Продажи только Юр. лицам или ИП (Индивидуальным Предпринимателям) по предварительным заявкам.
+                Оплата по безналичному расчету, согласно выставленным счетам. Предоставляется комплект всех необходимых документов.
+            </p>
+            <p class="text-gray-700 mb-8">
+                Алкогольная продукция отгружается только покупателям зарегистрированным и подключенным к базе ЕГАИС (единая государственная автоматизированная информационная система) по продаже алкоголя.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Что такое ЕГАИС?</h2>
+            <p class="text-gray-700 mb-4">
+                Могу ли я зарегистрироваться как физическое лицо?
+            </p>
+            <ul class="list-disc pl-6 text-gray-700 mb-8">
+                <li>Нет. Это могут сделать только Юр. лица или ИП</li>
+            </ul>
+            <p class="text-gray-700 mb-8">
+                Пожалуйста, прочитайте больше о ЕГАИС 
+                <a href="https://www.beerlogistic.ru/blog/pivo/egais" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="text-primary font-semibold hover:underline">здесь</a>.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Доставка</h2>
+            <p class="text-gray-700 mb-4">
+                Минимальная партия доставки - от 50 тыс. руб.
+            </p>
+            <p class="text-gray-700 mb-4">
+                В пределах Москвы доставка бесплатна.
+            </p>
+            <p class="text-gray-700 mb-8">
+                Осуществляется на следующий день после оплаты заказа до склада покупателя или транспортной компании.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Цена</h2>
+            <p class="text-gray-700 mb-8">
+                Подробная стоимость за штуку и упаковку по запросу.
+            </p>
+
+            <!-- Дополнительная информация -->
+            <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6 mt-10">
+                <h3 class="text-2xl text-center font-bold text-gray-800 mb-4">Хотите стать партнёром?</h3>
+                {% include 'includes/contact_form.html' with hide_title=True no_background=True %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+
+<style>
+    .prose h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .prose ul {
+        margin-bottom: 1.5rem;
+    }
+    .prose a {
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .prose a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

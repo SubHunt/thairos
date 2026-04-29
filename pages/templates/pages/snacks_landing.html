@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Thairos — Снеки Masita Singha{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-r from-amber-50 to-orange-100 text-gray-900 py-24 overflow-hidden">
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 mb-12 lg:mb-0 text-left">
+                <img src="{{ product.logo }}" alt="Masita Singha Logo" class="w-48 h-auto mb-8 mx-auto lg:mx-0">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-amber-900">{{ product.title }}</h1>
+                <p class="text-2xl text-amber-700 mb-8">{{ product.subtitle }}</p>
+                <p class="text-xl text-gray-700 mb-10 max-w-2xl">{{ product.description }}</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#features" class="px-8 py-4 bg-amber-600 text-white font-bold rounded-full hover:bg-amber-700 transition duration-300 shadow-lg">
+                        Узнать больше
+                    </a>
+                    <a href="#gallery" class="px-8 py-4 bg-white text-amber-700 border-2 border-amber-600 font-bold rounded-full hover:bg-amber-50 transition duration-300">
+                        Смотреть фото
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <img src="{{ product.hero_image }}" alt="{{ product.name }}" class="w-full max-w-lg rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500">
+            </div>
+        </div>
+    </div>
+    <!-- Декоративные элементы -->
+    <div class="absolute top-10 left-10 w-32 h-32 bg-amber-200 rounded-full opacity-30"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-orange-200 rounded-full opacity-30"></div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-20 bg-white scroll-mt-20">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Почему выбирают Masita Singha?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for feature in product.features %}
+            <div class="bg-amber-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-amber-100 text-amber-700 rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <p class="text-gray-700 text-lg">{{ feature }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Usage Section -->
+<section class="py-20 bg-gradient-to-r from-amber-100 to-orange-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Как употреблять</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for item in product.usage %}
+            <div class="bg-white rounded-3xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-amber-600 text-white rounded-full mb-6 text-2xl font-bold">
+                    {{ forloop.counter }}
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ item }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-white scroll-mt-20">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Галерея</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for image in product.images %}
+            <div class="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <img src="{{ image }}" alt="Masita Singha {{ forloop.counter }}" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Characteristics Section -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-gray-800 mb-8">Характеристики</h2>
+                <ul class="space-y-4">
+                    {% for char in product.characteristics %}
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-amber-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-gray-700 text-lg">{{ char }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="mt-10 p-6 bg-white rounded-2xl shadow">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Состав</h3>
+                    <p class="text-gray-700">{{ product.composition }}</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Условия хранения</h3>
+                    <p class="text-gray-700">{{ product.storage }}</p>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="bg-gradient-to-br from-amber-500 to-orange-500 rounded-3xl p-8 shadow-2xl text-white text-center max-w-md">
+                    <h3 class="text-3xl font-bold mb-6">Попробуйте сейчас!</h3>
+                    <p class="text-xl mb-8">Закажите жареные водоросли Masita Singha и насладитесь хрустящим вкусом моря.</p>
+                    <a href="#contact-form" class="inline-block px-10 py-4 bg-white text-amber-700 font-bold rounded-full hover:bg-amber-50 transition duration-300 shadow-lg">
+                        Запросить цену
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+{% include 'includes/contact_form.html' %}
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+{% endblock %}

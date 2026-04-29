@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Где купить | Thairos{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<div class="container mx-auto px-4 py-12">
+    <!-- Заголовок -->
+    <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Где купить нашу продукцию</h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Наши товары представлены в крупнейших розничных сетях и специализированных магазинах Москвы и других городов.
+        </p>
+    </div>
+
+    <!-- Сетка партнёров -->
+    <div class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Наши партнёры</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+            {% with partners="Globus_Logo.jpg komandor-pr.jpg Logo_METRO.svg.png logo-azbuka-vkusa.png Perekrestok_supermarket_logo_2020.jpg Vkusvill_textlogo_2021.svg.png winestyle_rebranding_logo.jpg Магнолия_лого.png 9d328474_dc61_49fd_bab9_1c4e427d13e1.png 74973aea-3065-408c-8b88-a96f89d919f7.jpg 1578873134992_big_vlru.jpg dutef.jpg__1622460812__90442.jpg" %}
+            {% for filename in partners.split %}
+            <div class="partner-card group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                <div class="aspect-square flex items-center justify-center p-6">
+                    <img src="{% static 'where_to_buy/'|add:filename %}" 
+                         alt="{{ filename|slice:':-4' }}" 
+                         class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110">
+                </div>
+            </div>
+            {% endfor %}
+            {% endwith %}
+        </div>
+    </div>
+
+    <!-- Контактная форма -->
+    <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12 mb-12">
+        <h2 class="text-4xl font-bold text-center text-primary mb-12">Как стать партнёром?</h2>
+        {% include 'includes/contact_form.html' with hide_title=True no_background=True %}
+    </div>
+
+</div>
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+
+<style>
+    .partner-card {
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .partner-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    .partner-card img {
+        filter: grayscale(30%);
+        transition: filter 0.5s ease;
+    }
+    .partner-card:hover img {
+        filter: grayscale(0%);
+    }
+</style>
+{% endblock %}

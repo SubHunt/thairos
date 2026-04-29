@@ -27,16 +27,18 @@
         </button>
         <nav class="hidden md:block">
             <ul class="flex space-x-8">
-                <li><a href="{% url 'home' %}" class="text-white font-semibold hover:text-secondary transition">Главная</a></li>
-                <li class="relative group">
-                    <a href="{% url 'home' %}#products" class="text-white font-semibold hover:text-secondary transition">Продукция</a>
-                    <div class="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-white shadow-lg rounded-lg mt-2 p-4 min-w-[200px] transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
-                        <a href="{% url 'pages:beer_brands' %}" class="block py-2 hover:text-secondary">Пиво</a>
-                        <a href="{% url 'pages:juice_brands' %}" class="block py-2 hover:text-secondary">Соки</a>
-                        <a href="#snacks" class="block py-2 hover:text-secondary">Снеки</a>
+                <li><a href="{% url 'home' %}" class="text-white font-semibold hover:text-secondary transition cursor-pointer">Главная</a></li>
+                <li class="relative group cursor-pointer">
+                    <a href="{% url 'home' %}#products" class="text-white font-semibold hover:text-secondary transition cursor-pointer">Продукция</a>
+                    <div class="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-white shadow-lg rounded-lg mt-2 p-4 min-w-[200px] transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 cursor-pointer">
+                        <a href="{% url 'pages:beer_brands' %}" class="block py-2 hover:text-secondary cursor-pointer">Пиво</a>
+                        <a href="{% url 'pages:juice_brands' %}" class="block py-2 hover:text-secondary cursor-pointer">Напитки</a>
+                        <a href="{% url 'pages:snacks_landing' %}" class="block py-2 hover:text-secondary cursor-pointer">Снеки</a>
                     </div>
                 </li>
-                <li><a href="{% url 'pages:about' %}" class="text-white font-semibold hover:text-secondary transition">О компании</a></li>
+                <li><a href="{% url 'pages:about' %}" class="text-white font-semibold hover:text-secondary transition cursor-pointer">О компании</a></li>
+                <li><a href="{% url 'pages:where_to_buy' %}" class="text-white font-semibold hover:text-secondary transition cursor-pointer">Где купить</a></li>
+                <li><a href="{% url 'pages:terms' %}" class="text-white font-semibold hover:text-secondary transition cursor-pointer">Условия</a></li>
                 <!-- <li><a href="#contacts" class="text-white font-semibold hover:text-secondary transition">Контакты</a></li> -->
             </ul>
         </nav>
@@ -45,15 +47,17 @@
     <div id="mobile-menu" class="md:hidden hidden bg-primary px-4 pb-4">
         <ul class="space-y-4">
             <li><a href="{% url 'home' %}" class="block text-white font-semibold hover:text-secondary transition py-2">Главная</a></li>
-            <li class="relative">
-                <a href="{% url 'home' %}#products" class="block text-white font-semibold hover:text-secondary transition py-2">Продукция</a>
+            <li class="relative cursor-pointer">
+                <a href="{% url 'home' %}#products" class="block text-white font-semibold hover:text-secondary transition py-2 cursor-pointer">Продукция</a>
                 <div class="pl-4 mt-2 space-y-2 border-l-2 border-secondary">
-                    <a href="{% url 'pages:beer_brands' %}" class="block text-white hover:text-secondary transition py-1">Пиво</a>
-                    <a href="{% url 'pages:juice_brands' %}" class="block text-white hover:text-secondary transition py-1">Соки</a>
-                    <a href="#snacks" class="block text-white hover:text-secondary transition py-1">Снеки</a>
+                    <a href="{% url 'pages:beer_brands' %}" class="block text-white hover:text-secondary transition py-1 cursor-pointer">Пиво</a>
+                    <a href="{% url 'pages:juice_brands' %}" class="block text-white hover:text-secondary transition py-1 cursor-pointer">Напитки</a>
+                    <a href="{% url 'pages:snacks_landing' %}" class="block text-white hover:text-secondary transition py-1 cursor-pointer">Снеки</a>
                 </div>
             </li>
             <li><a href="{% url 'pages:about' %}" class="block text-white font-semibold hover:text-secondary transition py-2">О компании</a></li>
+            <li><a href="{% url 'pages:where_to_buy' %}" class="block text-white font-semibold hover:text-secondary transition py-2">Где купить</a></li>
+            <li><a href="{% url 'pages:terms' %}" class="block text-white font-semibold hover:text-secondary transition py-2">Условия</a></li>
             <!-- <li><a href="#contacts" class="block text-white font-semibold hover:text-secondary transition py-2">Контакты</a></li> -->
         </ul>
     </div>
