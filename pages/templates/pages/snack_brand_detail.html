@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}Thairos — {{ brand.name }}{% endblock %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+
+<!-- Hero Section -->
+<section class="relative py-20 overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 mb-12 lg:mb-0">
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">{{ brand.title }}</h1>
+                <p class="text-xl text-gray-700 mb-8 max-w-2xl">{{ brand.description }}</p>
+                <div class="flex flex-wrap gap-3">
+                    {% for feature in brand.features %}
+                    <span class="px-4 py-2 bg-white/80 backdrop-blur-sm text-amber-800 rounded-full text-sm font-semibold shadow-sm">
+                        {{ feature }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <img src="{{ brand.hero_image }}" alt="{{ brand.name }}" 
+                     class="max-w-md w-full h-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </div>
+    <!-- Декоративные элементы -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-amber-300 rounded-full opacity-10 -translate-y-32 translate-x-32"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-orange-300 rounded-full opacity-10 -translate-x-40 translate-y-40"></div>
+</section>
+
+<!-- Products Grid -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Вкусы</h2>
+        <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
+            Каждый вкус — это уникальное сочетание натуральных ингредиентов и традиционных рецептов.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {% for product in brand.products %}
+            <div class="group relative bg-gradient-to-b from-white to-gray-50 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <!-- Акцентный угол -->
+                {% if product.name == 'Original' or product.name == 'С грибами веган' %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-400 to-green-300 rounded-bl-3xl"></div>
+                {% else %}
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-red-400 to-red-300 rounded-bl-3xl"></div>
+                {% endif %}
+                <div class="p-6">
+                    <div class="mb-6 flex justify-center">
+                        <img src="{{ product.image }}" alt="{{ product.name }}" 
+                             class="w-48 h-48 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ product.name }}</h3>
+                    <p class="text-gray-700 mb-6">{{ product.description }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% for tag in product.tags %}
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">
+                            {{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Эффект при наведении -->
+                {% if product.name == 'Original' or product.name == 'С грибами веган' %}
+                <div class="absolute inset-0 bg-gradient-to-r from-green-200/0 via-green-200/30 to-green-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% else %}
+                <div class="absolute inset-0 bg-gradient-to-r from-red-200/0 via-red-200/30 to-red-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Key Features -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Ключевые преимущества</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for benefit in brand.benefit_list %}
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-orange-400 text-white rounded-full mb-6 text-2xl font-bold">
+                    {{ forloop.counter }}
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4">{{ benefit.title }}</h3>
+                <p class="text-gray-600">
+                    {{ benefit.description }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Characteristics -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Характеристики</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 shadow-lg">
+                <ul class="space-y-4">
+                    {% for char in brand.characteristics %}
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-amber-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-gray-800">{{ char }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Контактная форма -->
+{% include 'includes/contact_form.html' %}
+
+<!-- Footer -->
+{% include 'includes/footer.html' %}
+{% endblock %}
